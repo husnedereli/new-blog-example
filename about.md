@@ -18,20 +18,23 @@ It is your opportunity to let us know all the details "about" your project:
 - people involved
 - code and projects used
 
-{% for animal in side.data.animals %}
+## List of Animals
+
+{% for animal in site.data.animals %}
 - The {{ animal.name }} is a {{ animal.size }} animal.
-(% endfor %)
+{% endfor %}
 
-## Large animals are best:
-{% for animal in side.data.animals %}- <strong style="color: {{ animal.color }};">{{ animal.name }}</strong>
-{% if animal.size == "large" %}- <small>{{ animal.name }}</small>
-{% else %}
+## Large Animals are Better
+
+{% for animal in site.data.animals %}
+{% if animal.size == "large" %}- <strong style="color: {{ animal.color }};">{{ animal.name }}</strong>
+{% else %}- <small>{{ animal.name }}</small>
 {% endif %}
-(% endfor %)
+{% endfor %}
 
-## Small animal only
+## List of Small Animals
 
 {% assign small_animals = site.data.animals | where: "size", "small" %}
-{% for amimal in small_animals %)
-- {{ animal.name | upcase ))
-- {% endfor %}
+{% for animal in small_animals %}
+- {{ animal.name | upcase }}
+{% endfor %}
